@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indigo-50: #f0fbf7;
+  --color-indigo-100: #dcf5eb;
+  --color-indigo-200: #b9ebd6;
+  --color-indigo-300: #88dcb9;
+  --color-indigo-400: #54c89a;
+  --color-indigo-500: #2fb380;
+  --color-indigo-600: #2fb380;
+  --color-indigo-700: #269a6e;
+  --color-indigo-800: #227a59;
+  --color-indigo-900: #1d644a;
+  --color-indigo-950: #0a3827;
+
+  --color-brand: #2fb380;
+  --color-brand-hover: #269a6e;
+  --color-cream: #FAF8F3;
+}
+
+:root {
+  --theme-bg: #FAF8F3;
+  --theme-accent: #2FB380;
+}
+
+html, body {
+  background-color: #FAF8F3;
+  color: #1e293b;
+  min-height: 100%;
+}
