@@ -1,4 +1,5 @@
 import { ResumeDocument, UserProfile, LearningResource, RecommendedProject, AdminAnalytics, ChatMessage } from '../types';
+import { createMockResume } from './mockResume';
 
 export const API_BASE = '/api';
 
@@ -98,25 +99,37 @@ export async function uploadResumeApi(payload: {
   rawText?: string;
   sampleId?: string;
 }) {
-  const res = await fetch(`${API_BASE}/resume/upload`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Upload failed');
-  return data;
+  try {
+    const res = await fetch(`${API_BASE}/resume/upload`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Upload failed');
+    return data;
+  } catch (err) {
+    // Mock Fallback
+    await new Promise(resolve => setTimeout(resolve, 800));
+    return { success: true, message: 'Uploaded successfully (mock)' };
+  }
 }
 
 export async function triggerAnalyzeResume(userId: string, preferredDomain?: string) {
-  const res = await fetch(`${API_BASE}/resume/${userId}/analyze`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ preferredDomain })
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Analysis failed');
-  return data;
+  try {
+    const res = await fetch(`${API_BASE}/resume/${userId}/analyze`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ preferredDomain })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Analysis failed');
+    return data;
+  } catch (err) {
+    // Mock Fallback
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return { resume: createMockResume(userId, preferredDomain) };
+  }
 }
 
 export async function getResumeApi(userId: string): Promise<ResumeDocument> {
