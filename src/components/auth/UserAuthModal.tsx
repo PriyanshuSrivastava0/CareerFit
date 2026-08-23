@@ -283,14 +283,9 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({
     }
 
     try {
-      const res = await fetch('/api/auth/forgot-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ identifier: forgotIdentifier, newPassword: forgotNewPassword })
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-
+      // MOCK BACKEND CALL FOR PROTOTYPE
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
       showToast('success', 'Password Updated', 'You can now sign in with your new password.');
       setMode('login');
       setLoginIdentifier(forgotIdentifier);

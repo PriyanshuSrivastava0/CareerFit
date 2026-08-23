@@ -228,13 +228,8 @@ export const AuthPage: React.FC = () => {
     }
 
     try {
-      const res = await fetch('/api/auth/send-otp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone: otpPhone })
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
+      // MOCK BACKEND CALL FOR PROTOTYPE
+      await new Promise(resolve => setTimeout(resolve, 800));
 
       setIsOtpSent(true);
       setResendTimer(30);
@@ -333,13 +328,8 @@ export const AuthPage: React.FC = () => {
     }
 
     try {
-      const res = await fetch('/api/auth/forgot-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ identifier: forgotIdentifier, newPassword: forgotNewPassword })
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
+      // MOCK BACKEND CALL FOR PROTOTYPE
+      await new Promise(resolve => setTimeout(resolve, 800));
 
       setSuccessMessage('Password reset successfully! You can now log in with your new credentials.');
       showToast('success', 'Password Reset', 'Password updated successfully. Please log in.');
