@@ -175,7 +175,7 @@ export const ResumeUploadView: React.FC = () => {
       {/* Main Upload Box */}
       <div className="rounded-[2rem] bg-white border border-slate-200/80 shadow-sm overflow-hidden">
         {/* Tab Headers */}
-        <div className="grid grid-cols-3 gap-1 p-2 bg-slate-50 border-b border-slate-100 text-xs font-bold">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 p-2 bg-slate-50 border-b border-slate-100 text-xs font-bold">
           <button
             onClick={() => {
               setActiveTab('samples');
