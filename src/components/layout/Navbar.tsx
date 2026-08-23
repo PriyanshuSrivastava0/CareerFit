@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, onOpenAdminAuth }) =
 
           {/* Center Navigation - Desktop */}
           {!isAdminMode && currentUser && (
-            <nav className="hidden lg:flex items-center gap-1 bg-slate-100 p-1.5 rounded-2xl border border-slate-200/80">
+            <nav className="hidden xl:flex items-center gap-1 bg-slate-100 p-1.5 rounded-2xl border border-slate-200/80">
               {navLinks.map((link) => {
                 const isActive = currentPage === link.id;
                 const hasAtsBadge = link.id === 'ats' && resume?.atsAnalysis;
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, onOpenAdminAuth }) =
                   <button
                     key={link.id}
                     onClick={() => setCurrentPage(link.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                    className={`flex items-center whitespace-nowrap gap-1 px-2 2xl:px-3 py-1.5 rounded-xl text-[11px] xl:text-xs font-semibold transition-all ${
                       isActive
                         ? 'bg-white text-indigo-600 shadow-sm font-bold'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
@@ -309,7 +309,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, onOpenAdminAuth }) =
             {/* Mobile Menu Trigger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-2xl"
+              className="xl:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-2xl"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -319,7 +319,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth, onOpenAdminAuth }) =
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+        <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
           {currentUser &&
             navLinks.map((link) => (
               <button
